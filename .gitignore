@@ -1,0 +1,7 @@
+# Build products
+result*
+docker/volumes/
+bin
+test
+
+dist/
