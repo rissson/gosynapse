@@ -1,4 +1,4 @@
-module gitlab.com/lama-corp/infra/tools/gosynapse
+module gitlab.com/lama-corp/infra/packages/gosynapse
 
 go 1.16
 
