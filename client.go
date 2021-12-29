@@ -38,6 +38,36 @@ func (cli *Client) BuildBaseURLWithQuery(urlPath URLPath, urlQuery map[string]st
 	return cli.Cli.BuildBaseURLWithQuery(urlPath, urlQuery)
 }
 
+// GetUser returns information about a user.
+// https://matrix-org.github.io/synapse/latest/admin_api/user_admin_api.html#query-user-account
+func (cli *Client) GetUser(userID string) (resp *RespUser, err error) {
+	resp = new(RespUser)
+	u := cli.BuildBaseURL("_synapse", "admin", "v2", "users", userID)
+	_, err = cli.Cli.MakeRequest("GET", u, nil, resp)
+	return
+}
+
+// CreateOrModifyUser creates or modifies a user.
+// https://matrix-org.github.io/synapse/latest/admin_api/user_admin_api.html#create-or-modify-account
+func (cli *Client) CreateOrModifyUser(userID string, req *ReqUser) (err error) {
+	u := cli.BuildBaseURL("_synapse", "admin", "v2", "users", userID)
+	_, err = cli.Cli.MakeRequest("PUT", u, req, nil)
+	return
+}
+
+// DeactivateUser deactivates a user.
+// https://matrix-org.github.io/synapse/latest/admin_api/user_admin_api.html#deactivate-account
+func (cli *Client) DeactivateUser(userID string, erase bool) (err error) {
+	u := cli.BuildURL("deactivate", userID)
+	req := struct {
+		Erase bool `json:"erase"`
+	}{
+		Erase: erase,
+	}
+	_, err = cli.Cli.MakeRequest("POST", u, req, nil)
+	return
+}
+
 // GetVersion gets the server version.
 // https://matrix-org.github.io/synapse/latest/admin_api/version_api.html
 func (cli *Client) GetVersion() (resp *RespVersion, err error) {
