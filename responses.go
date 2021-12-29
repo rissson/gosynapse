@@ -16,8 +16,8 @@ type RespExternalID struct {
 
 // RespUser is the JSON response for https://matrix-org.github.io/synapse/latest/admin_api/user_admin_api.html#query-user-account
 type RespUser struct {
-	Displayname             string           `json:"displayname"`
-	Threepids               []RespThreePID   `json:"threepids"`
+	DisplayName             string           `json:"displayname"`
+	ThreePIDs               []RespThreePID   `json:"threepids"`
 	AvatarURL               string           `json:"avatar_url"`
 	Admin                   int              `json:"admin"`
 	Deactivated             int              `json:"deactivated"`
@@ -27,7 +27,7 @@ type RespUser struct {
 	AppserviceID            string           `json:"appservice_id"`
 	ConsentServerNoticeSent int              `json:"consent_server_notice_sent"`
 	ConsentVersion          string           `json:"consent_version"`
-	ExternalIds             []RespExternalID `json:"external_ids"`
+	ExternalIDs             []RespExternalID `json:"external_ids"`
 	UserType                string           `json:"user_type"`
 }
 

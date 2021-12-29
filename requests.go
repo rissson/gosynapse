@@ -15,9 +15,9 @@ type ReqExternalID struct {
 // ReqUser is the JSON response for https://matrix-org.github.io/synapse/latest/admin_api/user_admin_api.html#create-or-modify-account
 type ReqUser struct {
 	Password    string          `json:"password,omitempty"`
-	Displayname string          `json:"displayname,omitempty"`
-	Threepids   []ReqThreePID   `json:"threepids,omitempty"`
-	ExternalIds []ReqExternalID `json:"external_ids,omitempty"`
+	DisplayName string          `json:"displayname,omitempty"`
+	ThreePIDs   []ReqThreePID   `json:"threepids,omitempty"`
+	ExternalIDs []ReqExternalID `json:"external_ids,omitempty"`
 	AvatarURL   string          `json:"avatar_url,omitempty"`
 	Admin       bool            `json:"admin,omitempty"`
 	Deactivated bool            `json:"deactivated,omitempty"`
