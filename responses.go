@@ -21,7 +21,7 @@ type RespUser struct {
 	AvatarURL               string           `json:"avatar_url"`
 	Admin                   int              `json:"admin"`
 	Deactivated             int              `json:"deactivated"`
-	ShadowBanned            int              `json:"shadow_banned"`
+	ShadowBanned            bool             `json:"shadow_banned"`
 	PasswordHash            string           `json:"password_hash"`
 	CreationTs              int              `json:"creation_ts"`
 	AppserviceID            string           `json:"appservice_id"`
