@@ -1,18 +1,18 @@
 package gosynapse
 
-// ReqThreePID is part of the JSON response for https://matrix-org.github.io/synapse/latest/admin_api/user_admin_api.html#create-or-modify-account
+// ReqThreePID is part of the JSON request for https://matrix-org.github.io/synapse/latest/admin_api/user_admin_api.html#create-or-modify-account
 type ReqThreePID struct {
 	Medium  string `json:"medium,omitempty"`
 	Address string `json:"address,omitempty"`
 }
 
-// ReqExternalID is part of the JSON response for https://matrix-org.github.io/synapse/latest/admin_api/user_admin_api.html#create-or-modify-account
+// ReqExternalID is part of the JSON request for https://matrix-org.github.io/synapse/latest/admin_api/user_admin_api.html#create-or-modify-account
 type ReqExternalID struct {
 	AuthProvider string `json:"auth_provider,omitempty"`
 	ExternalID   string `json:"external_id,omitempty"`
 }
 
-// ReqUser is the JSON response for https://matrix-org.github.io/synapse/latest/admin_api/user_admin_api.html#create-or-modify-account
+// ReqUser is the JSON request for https://matrix-org.github.io/synapse/latest/admin_api/user_admin_api.html#create-or-modify-account
 type ReqUser struct {
 	Password    string          `json:"password,omitempty"`
 	DisplayName string          `json:"displayname,omitempty"`

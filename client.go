@@ -68,6 +68,19 @@ func (cli *Client) DeactivateUser(userID string, erase bool) (err error) {
 	return
 }
 
+// JoinRoom makes a user join a room.
+// https://matrix-org.github.io/synapse/latest/admin_api/room_membership.html
+func (cli *Client) JoinRoom(userID string, roomID string) (err error) {
+	u := cli.BuildURL("join", roomID)
+	req := struct {
+		RoomID string `json:"room_id"`
+	}{
+		RoomID: roomID,
+	}
+	_, err = cli.Cli.MakeRequest("POST", u, req, nil)
+	return
+}
+
 // GetVersion gets the server version.
 // https://matrix-org.github.io/synapse/latest/admin_api/version_api.html
 func (cli *Client) GetVersion() (resp *RespVersion, err error) {
