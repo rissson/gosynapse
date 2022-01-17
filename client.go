@@ -73,9 +73,9 @@ func (cli *Client) DeactivateUser(userID string, erase bool) (err error) {
 func (cli *Client) JoinRoom(userID string, roomID string) (err error) {
 	u := cli.BuildURL("join", roomID)
 	req := struct {
-		RoomID string `json:"room_id"`
+		UserID string `json:"user_id"`
 	}{
-		RoomID: roomID,
+		UserID: userID,
 	}
 	_, err = cli.Cli.MakeRequest("POST", u, req, nil)
 	return
